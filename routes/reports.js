@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
-require('dotenv').config();
+require("dotenv").config();
 
 const reports = require("../models/reports.js");
 
@@ -11,6 +11,7 @@ const jwtSecret = process.env.JWT_SECRET;
 //router.get("/reports", (req, res) => reports.getReports(req, res));
 
 router.get("/reports/:week", (req, res) => reports.getReport(req, res));
+router.get("/reports", (req, res) => reports.getReports(req, res));
 
 
 router.post("/reports",
@@ -19,7 +20,7 @@ router.post("/reports",
 
 router.post("/reports/update",
     (req, res, next) => checkToken(req, res, next),
-    (req,res) => reports.updateReport(req, res));
+    (req, res) => reports.updateReport(req, res));
 
 
 function checkToken(req, res, next) {

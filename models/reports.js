@@ -2,6 +2,26 @@ const db = require("../db/database.js");
 
 
 const reports = {
+
+    getReports: function(req, res) {
+        let data = {
+            response: {
+                msg: "Reports loaded",
+                reports: {}
+            }
+        };
+
+        db.all("SELECT week, texts FROM reports", function (err, row) {
+            if(err) {
+                data.response.msg = "Reports failed.";
+                return res.status(400).json(data);
+            } else {
+                data.response.reports = row;
+                return res.status(200).json(data);
+            }
+        })
+    },
+
     getReport: function(req, res) {
         let data = {
             response: {
@@ -31,7 +51,7 @@ const reports = {
 
         db.run("INSERT INTO reports (week, texts) VALUES (?, ?)", req.body.week, req.body.text, function(err) {
             if(err) {
-                data.reponse.msg = "Failed to add report."
+                //data.reponse.msg = "Failed to add report."
                 return res.status(400).json(data);
             } else {
                 return res.status(201).json(data);
@@ -46,7 +66,7 @@ const reports = {
             }
         };
 
-        db.run("UPDATE reports SET text = ? WHERE week=?", req.report, req.week, (err) => {
+        db.run("UPDATE reports SET texts = ? WHERE week=?", req.body.text, req.body.week, function(err) {
             if (err) {
                 data.response.msg = "Update failed."
                 return res.status(400).json(data);

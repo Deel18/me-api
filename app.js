@@ -33,8 +33,10 @@ app.use('/', index);
 app.post("/login", login);
 app.post("/register", register);
 
+app.get("/reports", reports);
 app.get("/reports/:week", reports);
 app.post("/reports", reports);
+app.post("/reports/update", reports);
 
 
 
