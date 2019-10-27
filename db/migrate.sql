@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
 DROP TABLE IF EXISTS reports;
 
 CREATE TABLE IF NOT EXISTS reports (
-    week INT NOT NULL,
+    week INT NOT NULL UNIQUE,
     texts TEXT
 );
 
