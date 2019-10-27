@@ -11,12 +11,16 @@ const reports = require("./routes/reports");
 
 //development port
 const app = express();
-const port = 1337;
+const port = 8333;
 
 
 const bodyParser = require("body-parser");
 
+
 app.use(cors());
+
+app.options('*', cors());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
