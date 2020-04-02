@@ -18,5 +18,7 @@ CREATE TABLE IF NOT EXISTS reports (
 
 
 INSERT INTO reports (week, texts) VALUES
-(0, "Hej! Jag heter deel18 och studerar för tillfället webbprogrammering vid BTH!")
+(0, "Hej! Jag heter deel18 och studerar för tillfället webbprogrammering vid BTH!"),
+(1, "Testing needed for this route"),
+(2, "Testing needed for this route 2")
 ;

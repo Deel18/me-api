@@ -32,7 +32,7 @@ const reports = {
         };
 
         db.all("SELECT * FROM reports WHERE week like ? LIMIT 1", req.params.week, function (err, row) {
-            if(err) {
+            if((err) || (row == "")) {
                 data.response.msg = "Report failed.";
                 return res.status(400).json(data);
             } else {
