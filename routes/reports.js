@@ -35,9 +35,12 @@ function checkToken(req, res, next) {
     jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
         if (err) {
             data.response.msg = "Invalid token.";
+            res.status(401).json(data);
+        } else {
+            next();
         }
-        next();
     })
+
 }
 
 

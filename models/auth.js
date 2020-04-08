@@ -35,7 +35,7 @@ const auth = {
                         return res.status(400).json(data);
                     } else {
                         const payload = { email: body.email }
-                        data.response.token = jwt.sign(payload, jwtSecret, { expiresIn: "1h" });
+                        data.response.token = jwt.sign(payload, jwtSecret, { expiresIn: "1h"});
                         return res.status(200).json(data);
                     };
                 });

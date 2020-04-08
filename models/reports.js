@@ -62,16 +62,16 @@ const reports = {
     updateReport: function(req, res) {
         let data = {
             response: {
-                msg: "Report has been updated."
+                msg: "Report has been updated.",
             }
         };
 
         db.run("UPDATE reports SET texts = ? WHERE week=?", req.body.text, req.body.week, function(err) {
-            if (err) {
+            if ((err) || (Object.entries(req).length === 0)) {
                 data.response.msg = "Update failed."
                 return res.status(400).json(data);
             } else {
-                return res.status(400).json(data);
+                return res.status(201).json(data);
             }
         })
     }
