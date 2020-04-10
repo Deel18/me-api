@@ -1,22 +1,16 @@
 language: node_js
-
 node_js:
-    - "node"
-    - "10"
-    - "8"
-    - "6"
+  - 12
 
-sudo: false
-
-git:
-    submodules: false
-
-before_script:
-    - npm install
-
-script:
-    - npm test
-
-after_success:
-    - npm run report-coveralls
-    - npm run report-codecov
+cache:
+  yarn: true
+env:
+  global:
+    # Server variables
+    - NODE_ENV='test'
+    - DB_PATH='db/test.sqlite'
+    # JWT Config
+    - JWT_SECRET='ib16efJ7c6zCa*OtIFJxC5QBwV!I*QlrSF18SdGlZ&o0L&f#O^I0Vy441P4kVuo9'
+    - JWT_ISSUER='deel-ramverk.me'
+    - JWT_EXPIRES_IN='15m'
+    - JWT_MAX_AGE='1d '
