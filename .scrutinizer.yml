@@ -7,7 +7,7 @@ filter:
     excluded_paths:
         -"mode_modules/"
         -"coverage/"
-  tests:
+    tests:
     override:
       - command: npm test
         coverage:
