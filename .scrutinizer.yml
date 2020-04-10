@@ -9,7 +9,7 @@ build:
         coverage:
           file: coverage/clover.xml
           format: clover
- filter:
-   excluded_paths:
-   - "node_modules/"
-   - "coverage/"
+filter:
+  excluded_paths:
+  - "node_modules/"
+  - "coverage/"
