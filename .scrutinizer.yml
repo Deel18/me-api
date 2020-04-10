@@ -1,13 +1,14 @@
 build:
-    environment:
-        node: v12.10.0
-        variables:
-            JWT_SECRET: 'LONGESTSECRETEVER'
-filter:
+  environment:
+    node: v12.10.0
+    variables:
+      JWT_SECRET: 'LONGESTSECRETEVER'
+  filter:
     excluded_paths:
-        -"node_modules/"
-        -"coverage/"
-    tests:
+    - "node_modules/"
+    - "coverage/"
+
+  tests:
     override:
       - command: npm test
         coverage:
